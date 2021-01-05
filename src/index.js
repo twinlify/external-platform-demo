@@ -2,22 +2,22 @@ import 'regenerator-runtime/runtime';
 import React from 'react';
 import {render} from 'react-dom';
 
-const App = (options = {}) => {
+const createOctopus = (options = {}) => {
   if (!options.container) {
-    console.error('[App] Requires a container.');
+    console.error('[createOctopus] Requires a container.');
   }
 
   const container = document.getElementById(options.container);
   render(
     <div>
-      <b>🚀 skeleton-react</b>
+      <b>🐙 Octopus</b>
     </div>,
     container
   );
 };
 
-if (window && !window.App) {
-  window.App = App;
+if (window && !window.createOctopus) {
+  window.createOctopus = createOctopus;
 }
 
-export default App;
+export default createOctopus;
