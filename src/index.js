@@ -1,6 +1,7 @@
 import 'regenerator-runtime/runtime';
 import React from 'react';
 import {render} from 'react-dom';
+import Octopus from './app/octopus';
 
 const createOctopus = (options = {}) => {
   if (!options.container) {
@@ -8,12 +9,7 @@ const createOctopus = (options = {}) => {
   }
 
   const container = document.getElementById(options.container);
-  render(
-    <div>
-      <b>🐙 Octopus</b>
-    </div>,
-    container
-  );
+  render(<Octopus />, container);
 };
 
 if (window && !window.createOctopus) {
