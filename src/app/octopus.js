@@ -3,6 +3,7 @@ import styled from 'styled-components';
 
 import Menu from './containers/menu';
 import Screen from './containers/screen';
+import GithubCorner from './components/github-corner';
 
 // -----------------------------------------------------------------------------
 
@@ -24,6 +25,7 @@ const Octopus = () => (
   <StyledApp>
     <Menu />
     <Screen />
+    <GithubCorner />
   </StyledApp>
 );
 
