@@ -31,7 +31,7 @@ const Nexus = styled.div`
 
 // -----------------------------------------------------------------------------
 
-const NEXUS_VERSION = '0.2.14';
+const NEXUS_VERSION = '0.2.15';
 
 const localCss = `http://localhost/nexus-dist/min/nexus-${NEXUS_VERSION}.css`;
 const localJs = `http://localhost/nexus-dist/min/nexus-${NEXUS_VERSION}.debug.js`;

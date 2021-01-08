@@ -1,9 +1,18 @@
 import React from 'react';
-import styled from 'styled-components';
+import styled, {createGlobalStyle} from 'styled-components';
 
 import Menu from './containers/menu';
 import Screen from './containers/screen';
 import GithubCorner from './components/github-corner';
+
+// -----------------------------------------------------------------------------
+
+const GlobalStyle = createGlobalStyle`
+  body {
+    margin: 0;
+    padding: 0;
+  }
+`;
 
 // -----------------------------------------------------------------------------
 
@@ -23,6 +32,7 @@ const StyledApp = styled.div`
 
 const Octopus = () => (
   <StyledApp>
+    <GlobalStyle />
     <Menu />
     <Screen />
     <GithubCorner />
