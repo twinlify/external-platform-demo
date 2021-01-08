@@ -1,7 +1,7 @@
 {
   "name": "@twinlify/octopus",
   "version": "0.0.1",
-  "description": "🎛️ Dashboard to demonstrate how to play with Nexus SDK",
+  "description": "🐙 Dashboard to demonstrate how to play with Nexus SDK",
   "module": "dist/es/index.js",
   "scripts": {
     "build": "npm run clean && npm run build:es && npm run build:min && npm run build:public",
@@ -14,7 +14,7 @@
     "lint": "eslint src",
     "test": "ava"
   },
-  "license": "ISC",
+  "license": "MIT",
   "dependencies": {
     "@svgr/webpack": "^5.5.0",
     "hookstores": "^1.1.3",
