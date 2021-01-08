@@ -1,5 +1,6 @@
-import React from 'react';
+import React, {useEffect} from 'react';
 import styled from 'styled-components';
+import createNexus from '../../lib/create-nexus';
 
 // -----------------------------------------------------------------------------
 
@@ -13,30 +14,57 @@ const StyledScreen = styled.div`
 
 const Title = styled.p`
   width: 100%;
-  padding: 20px 20%;
+  padding: 0 100px;
+  font-size: 19px;
   box-sizing: border-box;
 `;
 
 const Nexus = styled.div`
   position: absolute;
-  background-color: #ff0;
-  top: 120px;
+  background-color: #444444;
+  top: 60px;
   left: 50%;
   translate: -50%;
-  width: 80%;
-  height: calc(80% - 120px);
+  width: 95%;
+  height: calc(95% - 60px);
 `;
 
 // -----------------------------------------------------------------------------
 
-const Screen = () => (
-  <StyledScreen>
-    <Title>
-      This is how you can integrate a Twinlify visualisator in your platform
-    </Title>
-    <Nexus />
-  </StyledScreen>
-);
+const NEXUS_VERSION = '0.2.14';
+
+const localCss = `http://localhost/nexus-dist/min/nexus-${NEXUS_VERSION}.css`;
+const localJs = `http://localhost/nexus-dist/min/nexus-${NEXUS_VERSION}.debug.js`;
+
+const productionCss = `https://static.twinlify.com/apps/nexus-${NEXUS_VERSION}.css`;
+const productionJs = `https://static.twinlify.com/apps/nexus-${NEXUS_VERSION}.min.js`;
+
+const production = window.location.hostname === 'app.twinlify.com';
+const cssUrl = production ? productionCss : localCss;
+const jsUrl = production ? productionJs : localJs;
+
+// -----------------------------------------------------------------------------
+
+const nexusWrapper = 'nexusWrapper';
+
+const Screen = () => {
+  useEffect(() => {
+    createNexus({
+      cssUrl,
+      jsUrl,
+      container: nexusWrapper
+    });
+  });
+
+  return (
+    <StyledScreen>
+      <Title>
+        This is how you can integrate a Twinlify visualisator in your platform
+      </Title>
+      <Nexus id={nexusWrapper} />
+    </StyledScreen>
+  );
+};
 
 // -----------------------------------------------------------------------------
 
