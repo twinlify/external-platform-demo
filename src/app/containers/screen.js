@@ -55,7 +55,7 @@ const Screen = () => {
       clientId: production ? 'twinlify' : 'localhost',
       container: nexusWrapper
     });
-  });
+  }, []);
 
   return (
     <StyledScreen>
