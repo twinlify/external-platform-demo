@@ -52,6 +52,7 @@ const Screen = () => {
     createNexus({
       cssUrl,
       jsUrl,
+      clientId: production ? 'twinlify' : 'localhost',
       container: nexusWrapper
     });
   });
