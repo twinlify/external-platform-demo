@@ -1,5 +1,6 @@
 # 🍄 Platform demo
 
+[![Netlify Status](https://api.netlify.com/api/v1/badges/e3a5cf54-23e7-4135-8d20-f4ce87fe9244/deploy-status)](https://app.netlify.com/sites/twinlify-platform-demo/deploys)
 [![style: styled-components](https://img.shields.io/badge/-%F0%9F%92%85%20styled--components-orange.svg?colorB=415)](https://github.com/styled-components/styled-components)
 
 #
@@ -12,7 +13,7 @@
 
 #
 
-try this demo platform live on [app.twinlify.com](https://app.twinlify.com)
+try this demo platform live on [platform.twinlify.com](https://platform.twinlify.com)
 
 ## dev
 

@@ -45,7 +45,7 @@ const StyledCorner = styled.a`
 
 const Corner = () => (
   <StyledCorner
-    href="https://github.com/twinlify/octopus"
+    href="https://github.com/twinlify/external-platform-demo"
     target="__blank"
     aria-label="View source on GitHub"
   >
