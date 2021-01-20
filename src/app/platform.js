@@ -30,7 +30,7 @@ const StyledApp = styled.div`
 
 // -----------------------------------------------------------------------------
 
-const Octopus = () => (
+const Platform = () => (
   <StyledApp>
     <GlobalStyle />
     <Menu />
@@ -39,4 +39,4 @@ const Octopus = () => (
   </StyledApp>
 );
 
-export default Octopus;
+export default Platform;

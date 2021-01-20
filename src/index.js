@@ -1,19 +1,19 @@
 import 'regenerator-runtime/runtime';
 import React from 'react';
 import {render} from 'react-dom';
-import Octopus from './app/octopus';
+import Platform from './app/platform';
 
-const createOctopus = (options = {}) => {
+const createPlatform = (options = {}) => {
   if (!options.container) {
-    console.error('[createOctopus] Requires a container.');
+    console.error('[createPlatform] Requires a container.');
   }
 
   const container = document.getElementById(options.container);
-  render(<Octopus />, container);
+  render(<Platform />, container);
 };
 
-if (window && !window.createOctopus) {
-  window.createOctopus = createOctopus;
+if (window && !window.createPlatform) {
+  window.createPlatform = createPlatform;
 }
 
-export default createOctopus;
+export default createPlatform;
