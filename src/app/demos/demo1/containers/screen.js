@@ -1,7 +1,5 @@
-import axios from 'axios';
-import React, {useEffect} from 'react';
+import React from 'react';
 import styled from 'styled-components';
-import loadNexus from '../../lib/load-nexus';
 
 // -----------------------------------------------------------------------------
 
@@ -39,24 +37,21 @@ const nexusWrapper = 'nexusWrapper';
 
 const createVis = () => {
   Nexus.create(nexusOptions);
-    createNexus(
-      {
-        cssUrl,
-        jsUrl,
-        clientId: production ? 'twinlify' : 'localhost',
-        container: nexusWrapper
-      },
-      onceCreated
-    );
-  });
-
-  return promise;
+  //   createNexus(
+  //     {
+  //       cssUrl,
+  //       jsUrl,
+  //       clientId: production ? 'twinlify' : 'localhost',
+  //       container: nexusWrapper
+  //     },
+  //     onceCreated
+  //   );
+  // });
 };
 
 // -----------------------------------------------------------------------------
 
 const Screen = () => {
-
   return (
     <StyledScreen>
       <Title>

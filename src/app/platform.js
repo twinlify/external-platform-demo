@@ -8,6 +8,12 @@ import Logo from './components/logo';
 
 // -----------------------------------------------------------------------------
 
+import Demo1 from './demos/demo1';
+import Demo2 from './demos/demo2';
+import Demo3 from './demos/demo3';
+
+// -----------------------------------------------------------------------------
+
 const GlobalStyle = createGlobalStyle`
   body {
     margin: 0;
@@ -129,6 +135,21 @@ const Header = ({selectDemo, selectedDemo}) => {
 
 // -----------------------------------------------------------------------------
 
+const Demo = num => {
+  switch (num) {
+    case 1:
+      return <Demo1 />;
+    case 2:
+      return <Demo2 />;
+    case 3:
+      return <Demo3 />;
+    default:
+      return <p>No demo {num}</p>;
+  }
+};
+
+// -----------------------------------------------------------------------------
+
 const Platform = () => {
   const [loading, setLoading] = useState(true);
   const [selectedDemo, selectDemo] = useState(1);
@@ -147,8 +168,7 @@ const Platform = () => {
     <StyledApp>
       <GlobalStyle />
       <Header selectDemo={selectDemo} selectedDemo={selectedDemo} />
-      {loading ? <p>Loading...</p> : <p>Demo {selectedDemo}</p>}
-      {/* {Demo} */}
+      {loading ? <p>Loading...</p> : Demo(selectedDemo)}
       {/* <Menu timeSeriesDemo={timeSeriesDemo} />
       <Screen timeSeriesDemo={timeSeriesDemo} /> */}
       <GithubCorner />
