@@ -17,6 +17,7 @@
   "license": "MIT",
   "dependencies": {
     "@svgr/webpack": "^5.5.0",
+    "axios": "^0.21.1",
     "hookstores": "^1.1.3",
     "react": "^17.0.1",
     "react-dom": "^17.0.1",

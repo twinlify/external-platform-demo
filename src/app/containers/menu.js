@@ -4,27 +4,6 @@ import {device, mediaQueryTransition} from '../style/breakpoints';
 
 // -----------------------------------------------------------------------------
 
-const StyledImg = styled.img`
-  width: 40px;
-  padding: 5px;
-
-  @media ${device.laptop} {
-    width: 90px;
-    padding: 20px;
-  }
-
-  ${mediaQueryTransition}
-`;
-
-const Logo = () => (
-  <StyledImg
-    alt="twinlify"
-    src="https://static.twinlify.com/logos/logo-256-white-text-20210106.png"
-  />
-);
-
-// -----------------------------------------------------------------------------
-
 const StyledMenu = styled.div`
   text-align: center;
   background-color: #222;
@@ -38,11 +17,7 @@ const StyledMenu = styled.div`
   ${mediaQueryTransition}
 `;
 
-const Menu = () => (
-  <StyledMenu>
-    <Logo />
-  </StyledMenu>
-);
+const Menu = () => <StyledMenu></StyledMenu>;
 
 // -----------------------------------------------------------------------------
 
