@@ -1,5 +1,5 @@
 import React, {useEffect, useState} from 'react';
-import styled, {createGlobalStyle} from 'styled-components';
+import styled, {createGlobalStyle, css} from 'styled-components';
 
 import GithubCorner from './components/github-corner';
 import axios from 'axios';
@@ -83,6 +83,7 @@ const $DemoButton = styled.div`
   background-color: #1e7ab9;
   border-radius: 5px;
   margin-right: 5px;
+  box-sizing: border-box;
   font-size: 15px;
   cursor: pointer;
 
@@ -94,20 +95,34 @@ const $DemoButton = styled.div`
     background-color: #559aee;
   }
 
-  transition: background-color 0.5s;
+  ${props =>
+    props.selected &&
+    css`
+      border: 2px solid white;
+    `}
+
+  transition: background-color 0.5s, border 0.2s;
 `;
 
 // -----------------------------------------------------------------------------
 
-const Header = () => {
+const Header = ({selectDemo, selectedDemo}) => {
+  const handleClick = num => () => selectDemo(num);
+
+  const Buttons = [1, 2, 3].map(num => (
+    <$DemoButton
+      key={num}
+      selected={selectedDemo === num}
+      onClick={handleClick(num)}
+    >
+      Demo {num}
+    </$DemoButton>
+  ));
+
   return (
     <$Header>
       <Logo />
-      <$DemoSelection>
-        <$DemoButton>Demo 1</$DemoButton>
-        <$DemoButton>Demo 2</$DemoButton>
-        <$DemoButton>Demo 3</$DemoButton>
-      </$DemoSelection>
+      <$DemoSelection>{Buttons}</$DemoSelection>
     </$Header>
   );
 };
@@ -116,13 +131,13 @@ const Header = () => {
 
 const Platform = () => {
   const [loading, setLoading] = useState(true);
+  const [selectedDemo, selectDemo] = useState(1);
 
   const loadPlatform = async () => {
     await loadNexus({
       cssUrl,
       jsUrl
     });
-
     setLoading(false);
   };
 
@@ -131,8 +146,8 @@ const Platform = () => {
   return (
     <StyledApp>
       <GlobalStyle />
-      <Header />
-      {loading ? <p>Loading...</p> : <p>Select demo</p>}
+      <Header selectDemo={selectDemo} selectedDemo={selectedDemo} />
+      {loading ? <p>Loading...</p> : <p>Demo {selectedDemo}</p>}
       {/* {Demo} */}
       {/* <Menu timeSeriesDemo={timeSeriesDemo} />
       <Screen timeSeriesDemo={timeSeriesDemo} /> */}
