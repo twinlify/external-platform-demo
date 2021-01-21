@@ -1,29 +1,45 @@
 import axios from 'axios';
-import React from 'react';
+import React, {useEffect, useState} from 'react';
+import styled from 'styled-components';
 import Menu from './containers/menu';
 import Screen from './containers/screen';
 
 // -----------------------------------------------------------------------------
 
-const fetchDemoData = async () => {
+const $Demo = styled.div`
+  display: flex;
+  flex-direction: row;
+`;
+
+// -----------------------------------------------------------------------------
+
+const fetchDemoTimeSeries = async () => {
   const fetched = await axios.get(
-    'http://connections.twinlify.com/machinechat/demo'
+    'https://connections.twinlify.com/machinechat/demo'
   );
 
-  return fetched.data;
+  const result = fetched.data;
+  const timeSeries = result.data;
+  return timeSeries;
 };
 
 // -----------------------------------------------------------------------------
 
 const Demo = () => {
-  const timeSeriesDemo = [];
+  const [timeSeries, setTimeSeries] = useState([]);
+
+  const loadInitialData = async () => {
+    const fetchedTimeSeries = await fetchDemoTimeSeries();
+    setTimeSeries(fetchedTimeSeries);
+  };
+
+  useEffect(loadInitialData, []);
 
   return (
-    <div>
-      <h1>Demo 1</h1>
-      <Menu timeSeriesDemo={timeSeriesDemo} />
-      <Screen timeSeriesDemo={timeSeriesDemo} />
-    </div>
+    <$Demo>
+      <Menu timeSeries={timeSeries} />
+      <Screen />
+    </$Demo>
   );
 };
 

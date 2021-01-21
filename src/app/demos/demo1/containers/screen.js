@@ -3,22 +3,22 @@ import styled from 'styled-components';
 
 // -----------------------------------------------------------------------------
 
-const StyledScreen = styled.div`
+const $Screen = styled.div`
   position: relative;
   text-align: center;
   background-color: #282c34;
-  min-height: 100vh;
+  height: calc(100vh - 80px);
   width: 100%;
 `;
 
-const Title = styled.p`
+const $Title = styled.p`
   width: 100%;
   padding: 0 100px;
   font-size: 19px;
   box-sizing: border-box;
 `;
 
-const Nexus = styled.div`
+const $Nexus = styled.div`
   position: absolute;
   background-color: #444444;
   top: 60px;
@@ -53,12 +53,12 @@ const createVis = () => {
 
 const Screen = () => {
   return (
-    <StyledScreen>
-      <Title>
+    <$Screen>
+      <$Title>
         This is how you can integrate a Twinlify visualisator in your platform
-      </Title>
-      <Nexus id={nexusWrapper} />
-    </StyledScreen>
+      </$Title>
+      <$Nexus id={nexusWrapper} />
+    </$Screen>
   );
 };
 

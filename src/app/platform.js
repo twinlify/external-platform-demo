@@ -1,12 +1,10 @@
 import React, {useEffect, useState} from 'react';
-import styled, {createGlobalStyle, css} from 'styled-components';
-
-import GithubCorner from './components/github-corner';
-import axios from 'axios';
-import loadNexus from '../lib/load-nexus';
-import Logo from './components/logo';
+import styled, {createGlobalStyle} from 'styled-components';
 
 // -----------------------------------------------------------------------------
+
+import loadNexus from '../lib/load-nexus';
+import Header from './components/header';
 
 import Demo1 from './demos/demo1';
 import Demo2 from './demos/demo2';
@@ -23,7 +21,7 @@ const GlobalStyle = createGlobalStyle`
 
 // -----------------------------------------------------------------------------
 
-const StyledApp = styled.div`
+const $App = styled.div`
   text-align: center;
   background-color: #101;
   min-height: 100vh;
@@ -48,83 +46,6 @@ const productionJs = `https://static.twinlify.com/apps/nexus-${NEXUS_VERSION}.mi
 const production = window.location.hostname.indexOf('local') === -1;
 const cssUrl = production ? productionCss : localCss;
 const jsUrl = production ? productionJs : localJs;
-
-// -----------------------------------------------------------------------------
-
-const HEADER_HEIGHT = 80;
-
-const $Header = styled.div`
-  background-color: #123;
-
-  height: ${HEADER_HEIGHT}px;
-  width: 100%;
-  padding: 0px 120px 0px 20px;
-  box-sizing: border-box;
-
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  align-items: center;
-`;
-
-const $DemoSelection = styled.div`
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-`;
-
-const $DemoButton = styled.div`
-  width: ${HEADER_HEIGHT - 10}px;
-  height: ${HEADER_HEIGHT - 10}px;
-  background-color: #1e7ab9;
-  border-radius: 5px;
-  margin-right: 5px;
-  box-sizing: border-box;
-  font-size: 15px;
-  cursor: pointer;
-
-  display: flex;
-  justify-content: center;
-  align-items: center;
-
-  &:hover {
-    background-color: #559aee;
-  }
-
-  ${props =>
-    props.selected &&
-    css`
-      border: 2px solid white;
-    `}
-
-  transition: background-color 0.5s, border 0.2s;
-`;
-
-// -----------------------------------------------------------------------------
-
-const Header = ({selectDemo, selectedDemo}) => {
-  const handleClick = num => () => selectDemo(num);
-
-  const Buttons = [1, 2, 3].map(num => (
-    <$DemoButton
-      key={num}
-      selected={selectedDemo === num}
-      onClick={handleClick(num)}
-    >
-      Demo {num}
-    </$DemoButton>
-  ));
-
-  return (
-    <$Header>
-      <Logo />
-      <$DemoSelection>
-        {Buttons}
-        <GithubCorner />
-      </$DemoSelection>
-    </$Header>
-  );
-};
 
 // -----------------------------------------------------------------------------
 
@@ -158,12 +79,14 @@ const Platform = () => {
   useEffect(loadPlatform, []);
 
   return (
-    <StyledApp>
+    <$App>
       <GlobalStyle />
       <Header selectDemo={selectDemo} selectedDemo={selectedDemo} />
       {loading ? <p>Loading...</p> : Demo(selectedDemo)}
-    </StyledApp>
+    </$App>
   );
 };
+
+// -----------------------------------------------------------------------------
 
 export default Platform;

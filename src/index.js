@@ -3,6 +3,8 @@ import React from 'react';
 import {render} from 'react-dom';
 import Platform from './app/platform';
 
+// -----------------------------------------------------------------------------
+
 const createPlatform = (options = {}) => {
   if (!options.container) {
     console.error('[createPlatform] Requires a container.');
@@ -12,8 +14,12 @@ const createPlatform = (options = {}) => {
   render(<Platform />, container);
 };
 
+// -----------------------------------------------------------------------------
+
 if (window && !window.createPlatform) {
   window.createPlatform = createPlatform;
 }
+
+// -----------------------------------------------------------------------------
 
 export default createPlatform;
