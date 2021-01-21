@@ -37,9 +37,12 @@ const $List = styled.div`
 
 // -----------------------------------------------------------------------------
 
-const Menu = ({timeSeries}) => {
+const Menu = ({timeSeries, onSelect}) => {
   const [selectedNum, selectNum] = useState(0);
-  const handleClick = num => () => selectNum(num);
+  const handleClick = num => () => {
+    selectNum(num);
+    onSelect(num);
+  };
 
   return (
     <$Menu>

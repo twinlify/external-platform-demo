@@ -27,18 +27,28 @@ const fetchDemoTimeSeries = async () => {
 
 const Demo = () => {
   const [timeSeries, setTimeSeries] = useState([]);
+  const [selectedEntry, selectEntry] = useState(null);
+
+  // -----------------------------------------
 
   const loadInitialData = async () => {
     const fetchedTimeSeries = await fetchDemoTimeSeries();
     setTimeSeries(fetchedTimeSeries);
+    selectEntry(fetchedTimeSeries[0]);
   };
 
   useEffect(loadInitialData, []);
 
+  // -----------------------------------------
+
+  const handleSelect = num => selectEntry(timeSeries[num]);
+
+  // -----------------------------------------
+
   return (
     <$Demo>
-      <Menu timeSeries={timeSeries} />
-      <Screen />
+      <Menu timeSeries={timeSeries} onSelect={handleSelect} />
+      <Screen selectedEntry={selectedEntry} />
     </$Demo>
   );
 };

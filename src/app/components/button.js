@@ -18,11 +18,6 @@ const $Button = styled.div`
     background-color: #559aee;
   }
 
-  ${props => css`
-    width: ${props.width};
-    height: ${props.height};
-  `}
-
   ${props =>
     props.selected &&
     css`

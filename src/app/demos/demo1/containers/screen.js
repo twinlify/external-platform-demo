@@ -61,7 +61,9 @@ const createVis = () => {
 
 // -----------------------------------------------------------------------------
 
-const Screen = () => {
+const Screen = props => {
+  const [date, value] = props.selectedEntry || [];
+
   return (
     <$Screen>
       <$Title>
@@ -74,6 +76,7 @@ const Screen = () => {
           - Then it uses the widget's SDK to update the 3D scene each time you
           select a value on the list.
         </p>
+        <span>{value}</span>
       </$Title>
       <$NexusWrapper id={nexusWrapper} />
     </$Screen>
