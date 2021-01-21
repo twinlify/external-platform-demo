@@ -47,7 +47,7 @@ const Entry = ({name, value, date}) => (
 const Menu = ({timeSeries}) => (
   <$Menu>
     {timeSeries.map(([date, value], index) => (
-      <Entry key={index} name={`VALUE-${index}`} value={value} date={date} />
+      <Entry key={index} name={`data-${index}`} value={value} date={date} />
     ))}
   </$Menu>
 );
