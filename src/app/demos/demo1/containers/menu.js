@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-import {device, mediaQueryTransition} from '../style/breakpoints';
+import {device, mediaQueryTransition} from '../../../style/breakpoints';
 
 // -----------------------------------------------------------------------------
 

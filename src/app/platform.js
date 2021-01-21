@@ -51,16 +51,6 @@ const jsUrl = production ? productionJs : localJs;
 
 // -----------------------------------------------------------------------------
 
-const fetchDemoData = async () => {
-  const fetched = await axios.get(
-    'http://connections.twinlify.com/machinechat/demo'
-  );
-
-  return fetched.data;
-};
-
-// -----------------------------------------------------------------------------
-
 const HEADER_HEIGHT = 80;
 
 const $Header = styled.div`
@@ -128,7 +118,10 @@ const Header = ({selectDemo, selectedDemo}) => {
   return (
     <$Header>
       <Logo />
-      <$DemoSelection>{Buttons}</$DemoSelection>
+      <$DemoSelection>
+        {Buttons}
+        <GithubCorner />
+      </$DemoSelection>
     </$Header>
   );
 };
@@ -169,9 +162,6 @@ const Platform = () => {
       <GlobalStyle />
       <Header selectDemo={selectDemo} selectedDemo={selectedDemo} />
       {loading ? <p>Loading...</p> : Demo(selectedDemo)}
-      {/* <Menu timeSeriesDemo={timeSeriesDemo} />
-      <Screen timeSeriesDemo={timeSeriesDemo} /> */}
-      <GithubCorner />
     </StyledApp>
   );
 };
