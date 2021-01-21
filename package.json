@@ -1,7 +1,7 @@
 {
-  "name": "@twinlify/octopus",
+  "name": "@twinlify/external-platform-demo",
   "version": "0.0.1",
-  "description": "🐙 Dashboard to demonstrate how to play with Nexus SDK",
+  "description": "🍄 Dashboard to demonstrate how to play with Nexus SDK ",
   "module": "dist/es/index.js",
   "scripts": {
     "build": "npm run clean && npm run build:es && npm run build:min && npm run build:public",
