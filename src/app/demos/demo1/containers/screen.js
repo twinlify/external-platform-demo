@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useEffect} from 'react';
 import styled from 'styled-components';
 
 // -----------------------------------------------------------------------------
@@ -31,7 +31,7 @@ const $Title = styled.div`
   }
 `;
 
-const $NexusWrapper = styled.div`
+const $NexusContainer = styled.div`
   position: relative;
   background-color: #444444;
   width: calc(100% - 20px);
@@ -41,28 +41,24 @@ const $NexusWrapper = styled.div`
 // -----------------------------------------------------------------------------
 
 const DEMO_CONNECTION_ID = 'demoTimeSeries';
-const nexusWrapper = 'nexusWrapper';
+const containerId = 'nexusContainer';
 
 // -----------------------------------------------------------------------------
 
-const createVis = () => {
-  Nexus.create(nexusOptions);
-  //   createNexus(
-  //     {
-  //       cssUrl,
-  //       jsUrl,
-  //       clientId: production ? 'twinlify' : 'localhost',
-  //       container: nexusWrapper
-  //     },
-  //     onceCreated
-  //   );
-  // });
+const createNexus = () => {
+  window.Nexus.create({
+    clientId: 'localhost',
+    // clientId: production ? 'twinlify' : 'localhost',
+    containerId
+  });
 };
 
 // -----------------------------------------------------------------------------
 
 const Screen = props => {
   const [date, value] = props.selectedEntry || [];
+
+  useEffect(createNexus, []);
 
   return (
     <$Screen>
@@ -76,9 +72,10 @@ const Screen = props => {
           - Then it uses the widget's SDK to update the 3D scene each time you
           select a value on the list.
         </p>
+        <span>{date}</span>
         <span>{value}</span>
       </$Title>
-      <$NexusWrapper id={nexusWrapper} />
+      <$NexusContainer id={containerId} />
     </$Screen>
   );
 };
