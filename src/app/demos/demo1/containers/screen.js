@@ -1,4 +1,4 @@
-import React, {useEffect} from 'react';
+import React, {useEffect, useState} from 'react';
 import styled from 'styled-components';
 
 // -----------------------------------------------------------------------------
@@ -40,26 +40,33 @@ const $NexusContainer = styled.div`
 
 // -----------------------------------------------------------------------------
 
-const DEMO_CONNECTION_ID = 'demoTimeSeries';
 const containerId = 'nexusContainer';
 
 // -----------------------------------------------------------------------------
 
-const createNexus = () => {
-  window.Nexus.create({
-    // clientId: production ? 'twinlify' : 'localhost',
-    clientId: 'localhost',
-    containerId,
-    configId: 'demo1'
-  });
-};
-
-// -----------------------------------------------------------------------------
-
 const Screen = props => {
-  const [date, value] = props.selectedEntry || [];
+  const [nexus, setNexus] = useState();
+  const {selectedEntry = []} = props;
 
-  useEffect(createNexus, []);
+  useEffect(() => {
+    setNexus(
+      Nexus.create({
+        // clientId: production ? 'twinlify' : 'localhost',
+        clientId: 'localhost',
+        containerId,
+        configId: 'demo1'
+      })
+    );
+  }, []);
+
+  useEffect(() => {
+    const [date, value] = props.selectedEntry || [];
+    console.log('--> entry changed to ', date, value);
+    // nexus.updateDevice({
+    //   deviceId: 'room-1',
+    //   data: {value, date}
+    // });
+  }, [selectedEntry]);
 
   return (
     <$Screen>
@@ -73,8 +80,6 @@ const Screen = props => {
           - Then it uses the widget's SDK to update the 3D scene each time you
           select a value on the list.
         </p>
-        <span>{date}</span>
-        <span>{value}</span>
       </$Title>
       <$NexusContainer id={containerId} />
     </$Screen>
