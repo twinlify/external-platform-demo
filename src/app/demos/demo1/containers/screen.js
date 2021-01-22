@@ -47,9 +47,10 @@ const containerId = 'nexusContainer';
 
 const createNexus = () => {
   window.Nexus.create({
-    clientId: 'localhost',
     // clientId: production ? 'twinlify' : 'localhost',
-    containerId
+    clientId: 'localhost',
+    containerId,
+    configId: 'demo1'
   });
 };
 
