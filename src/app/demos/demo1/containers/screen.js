@@ -60,12 +60,12 @@ const Screen = props => {
   }, []);
 
   useEffect(() => {
+    if (!nexus) return;
     const [date, value] = props.selectedEntry || [];
-    console.log('--> entry changed to ', date, value);
-    // nexus.updateDevice({
-    //   deviceId: 'room-1',
-    //   data: {value, date}
-    // });
+    nexus.updateDevice({
+      deviceId: 'room-1',
+      data: {value, date}
+    });
   }, [selectedEntry]);
 
   return (
