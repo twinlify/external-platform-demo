@@ -48,6 +48,9 @@ const Screen = props => {
   const [nexus, setNexus] = useState();
   const {selectedEntry = []} = props;
 
+  const nexusReady = !!(nexus && nexus.createReader);
+  console.log('---> test 0', {nexusReady});
+
   useEffect(() => {
     setNexus(
       Nexus.create({
@@ -60,13 +63,34 @@ const Screen = props => {
   }, []);
 
   useEffect(() => {
-    if (!nexus) return;
+    console.log('---> test', {nexusReady});
+    if (!nexus || !nexus.createReader) return;
     const [date, value] = props.selectedEntry || [];
-    nexus.updateDevice({
-      deviceId: 'room-1',
-      data: {value, date}
+
+    const reader = nexus.createReader({
+      colorPath: 'value',
+      colorSteps: 'zonesColors',
+      properties: [
+        {
+          name: 'Temperature',
+          path: 'value'
+        },
+        {
+          name: 'Date',
+          path: 'date'
+        }
+      ]
     });
-  }, [selectedEntry]);
+
+    const params = {
+      deviceId: 'room-1',
+      data: {value, date},
+      reader
+    };
+
+    console.log('----<<< ', params);
+    nexus.updateDevice(params);
+  }, [selectedEntry, nexusReady]);
 
   return (
     <$Screen>
