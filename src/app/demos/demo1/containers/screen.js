@@ -59,6 +59,7 @@ const Screen = props => {
 
   useEffect(() => {
     if (!nexus) return;
+
     const [date, value] = props.selectedEntry || [];
 
     const reader = nexus.createReader({
@@ -76,14 +77,11 @@ const Screen = props => {
       ]
     });
 
-    const params = {
+    nexus.updateDevice({
       deviceId: 'room-1',
-      data: {value, date},
+      rawData: {value, date},
       reader
-    };
-
-    console.log('----<<< ', params);
-    nexus.updateDevice(params);
+    });
   }, [selectedEntry, nexus]);
 
   return (
