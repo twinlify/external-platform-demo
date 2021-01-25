@@ -48,23 +48,17 @@ const Screen = props => {
   const [nexus, setNexus] = useState();
   const {selectedEntry = []} = props;
 
-  const nexusReady = !!(nexus && nexus.createReader);
-  console.log('---> test 0', {nexusReady});
-
   useEffect(() => {
-    setNexus(
-      Nexus.create({
-        // clientId: production ? 'twinlify' : 'localhost',
-        clientId: 'localhost',
-        containerId,
-        configId: 'demo1'
-      })
-    );
+    Nexus.create({
+      // clientId: production ? 'twinlify' : 'localhost',
+      clientId: 'localhost',
+      containerId,
+      configId: 'demo1'
+    }).then(setNexus);
   }, []);
 
   useEffect(() => {
-    console.log('---> test', {nexusReady});
-    if (!nexus || !nexus.createReader) return;
+    if (!nexus) return;
     const [date, value] = props.selectedEntry || [];
 
     const reader = nexus.createReader({
@@ -90,7 +84,7 @@ const Screen = props => {
 
     console.log('----<<< ', params);
     nexus.updateDevice(params);
-  }, [selectedEntry, nexusReady]);
+  }, [selectedEntry, nexus]);
 
   return (
     <$Screen>
