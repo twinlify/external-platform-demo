@@ -6,11 +6,11 @@ import Platform from './app/platform';
 // -----------------------------------------------------------------------------
 
 const createPlatform = (options = {}) => {
-  if (!options.container) {
-    console.error('[createPlatform] Requires a container.');
+  if (!options.containerId) {
+    console.error('[createPlatform] Requires a containerId.');
   }
 
-  const container = document.getElementById(options.container);
+  const container = document.getElementById(options.containerId);
   render(<Platform />, container);
 };
 

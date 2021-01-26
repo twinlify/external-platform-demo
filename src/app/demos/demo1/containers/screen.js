@@ -40,6 +40,7 @@ const $NexusContainer = styled.div`
 
 // -----------------------------------------------------------------------------
 
+const production = window.location.hostname.indexOf('local') === -1;
 const containerId = 'nexusContainer';
 
 // -----------------------------------------------------------------------------
@@ -48,14 +49,19 @@ const Screen = props => {
   const [nexus, setNexus] = useState();
   const {selectedEntry = []} = props;
 
+  // -----------------------------------
+  // on mount
+
   useEffect(() => {
     Nexus.create({
-      // clientId: production ? 'twinlify' : 'localhost',
-      clientId: 'localhost',
+      clientId: production ? 'twinlify' : 'localhost',
       containerId,
       configId: 'demo1'
     }).then(setNexus);
   }, []);
+
+  // -----------------------------------
+  // on update
 
   useEffect(() => {
     if (!nexus) return;
@@ -83,6 +89,8 @@ const Screen = props => {
       reader
     });
   }, [selectedEntry, nexus]);
+
+  // -----------------------------------
 
   return (
     <$Screen>
