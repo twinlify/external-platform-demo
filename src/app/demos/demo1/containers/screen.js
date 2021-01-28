@@ -84,7 +84,7 @@ const Screen = props => {
     });
 
     nexus.updateDevice({
-      deviceId: 'room-1',
+      deviceId: 'zone-2-1',
       rawData: {value, date},
       reader
     });
