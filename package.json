@@ -16,7 +16,6 @@
   },
   "license": "MIT",
   "dependencies": {
-    "@svgr/webpack": "^5.5.0",
     "axios": "^0.21.1",
     "hookstores": "^1.1.3",
     "react": "^17.0.1",
@@ -30,6 +29,7 @@
     "@babel/preset-env": "^7.12.11",
     "@babel/preset-react": "^7.12.10",
     "@babel/register": "^7.12.10",
+    "@svgr/webpack": "^5.5.0",
     "ava": "^3.15.0",
     "babel-eslint": "^10.1.0",
     "babel-loader": "^8.2.2",
