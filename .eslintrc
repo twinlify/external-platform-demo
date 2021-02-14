@@ -21,6 +21,8 @@
     }
   },
   "ignorePatterns": [
-    "*.html"
+    "sandbox/*.html",
+    "dist",
+    "node_modules"
   ]
 }
