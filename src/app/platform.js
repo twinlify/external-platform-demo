@@ -36,7 +36,7 @@ const $App = styled.div`
 
 // -----------------------------------------------------------------------------
 
-const NEXUS_VERSION = '0.7.0';
+const NEXUS_VERSION = '0.7.2';
 const localCss = `http://localhost/nexus-dist/min/nexus-${NEXUS_VERSION}.css`;
 const localJs = `http://localhost/nexus-dist/min/nexus-${NEXUS_VERSION}.debug.js`;
 
