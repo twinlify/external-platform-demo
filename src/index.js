@@ -21,5 +21,3 @@ if (window && !window.createPlatform) {
 }
 
 // -----------------------------------------------------------------------------
-
-export default createPlatform;
