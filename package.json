@@ -13,7 +13,7 @@
   },
   "license": "MIT",
   "dependencies": {
-    "@twinlify/nexus": "^0.7.15",
+    "@twinlify/nexus": "^0.7.16",
     "axios": "^0.21.1",
     "connect-history-api-fallback": "^1.6.0",
     "react": "^17.0.1",

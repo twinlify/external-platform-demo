@@ -35,20 +35,7 @@ const $App = styled.div`
 
 // -----------------------------------------------------------------------------
 
-// const NEXUS_VERSION = '0.7.2';
-// const localCss = `http://localhost/nexus-dist/min/nexus-${NEXUS_VERSION}.css`;
-// const localJs = `http://localhost/nexus-dist/min/nexus-${NEXUS_VERSION}.debug.js`;
-
-// const productionCss = `https://static.twinlify.com/apps/nexus-${NEXUS_VERSION}.css`;
-// const productionJs = `https://static.twinlify.com/apps/nexus-${NEXUS_VERSION}.min.js`;
-
-// const production = window.location.hostname.indexOf('local') === -1;
-// const cssUrl = production ? productionCss : localCss;
-// const jsUrl = production ? productionJs : localJs;
-
-// -----------------------------------------------------------------------------
-
-const Demo = num => {
+const Demo = ({num}) => {
   switch (num) {
     case 1:
       return <Demo1 />;
@@ -64,25 +51,13 @@ const Demo = num => {
 // -----------------------------------------------------------------------------
 
 const Platform = () => {
-  // const [loading, setLoading] = useState(true);
   const [selectedDemo, selectDemo] = useState(1);
-
-  // const loadPlatform = async () => {
-  //   // await loadNexus({
-  //   //   cssUrl,
-  //   //   jsUrl
-  //   // });
-  //   setLoading(false);
-  // };
-
-  // useEffect(loadPlatform, []);
 
   return (
     <$App>
       <GlobalStyle />
       <Header selectDemo={selectDemo} selectedDemo={selectedDemo} />
-      {/* {loading ? <p>Loading...</p> : Demo(selectedDemo)} */}
-      {Demo(selectedDemo)}
+      <Demo num={selectedDemo} />
     </$App>
   );
 };
