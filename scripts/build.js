@@ -28,21 +28,24 @@ const resultMessage = results => {
   console.log(' ');
 };
 
-const buildApp = ({format, minify, compress}) => {
-  const MODE = minify ? 'min' : 'debug';
+const buildApp = ({debug}) => {
+  const MODE = debug ? 'debug' : 'min';
   const outfile = `${DIST}/${MODE}/${bundleName}.${MODE}.js`;
+  const compress = !debug;
+  const minify = !debug;
+  const sourcemap = debug;
 
   esbuild
     .build({
-      banner: {js: banner},
-      format,
-      minify,
       entryPoints: ['src/index.js'],
-      bundle: true,
-      sourcemap: true,
-      metafile: true,
       outfile,
+      format: 'cjs',
+      banner: {js: banner},
       loader: {'.js': 'jsx'},
+      bundle: true,
+      sourcemap,
+      minify,
+      metafile: true,
       plugins: [svgrPlugin()],
       define: {
         'process.env.NODE_ENV': '"production"'
@@ -61,9 +64,6 @@ const buildApp = ({format, minify, compress}) => {
     .catch(() => process.exit(1));
 };
 
-const formats = [
-  {format: 'cjs', minify: true, compress: true},
-  {format: 'cjs', minify: false, compress: false}
-];
+const outputs = [{debug: true}, {debug: false}];
 
-formats.forEach(buildApp);
+outputs.forEach(buildApp);

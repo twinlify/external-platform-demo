@@ -11,11 +11,10 @@ esbuild
     entryPoints: ['src/index.js'],
     outfile: `${PUBLIC}/app.min.js`,
     format: 'cjs',
-    loader: {
-      '.js': 'jsx'
-    },
+    loader: {'.js': 'jsx'},
     bundle: true,
     sourcemap: true,
+    minify: false,
     watch: true,
     plugins: [svgrPlugin()],
     define: {
