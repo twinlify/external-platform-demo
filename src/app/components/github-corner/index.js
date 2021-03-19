@@ -12,7 +12,7 @@ import GithubCornerSVG from './github-corner.svg';
 // -----------------------------------------------------------------------------
 
 const StyledCorner = styled.a`
-  :hover .github-corner_svg__octo-arm {
+  :hover .octo-arm {
     animation: octocat-wave 560ms ease-in-out;
   }
 
@@ -32,10 +32,10 @@ const StyledCorner = styled.a`
   }
 
   @media (max-width: 500px) {
-    &:hover .github-corner_svg__octo-arm {
+    &:hover .octo-arm {
       animation: none;
     }
-    & .github-corner_svg__octo-arm {
+    & .octo-arm {
       animation: octocat-wave 560ms ease-in-out;
     }
   }
