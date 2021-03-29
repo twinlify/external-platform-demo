@@ -22,7 +22,6 @@
   },
   "ignorePatterns": [
     "public/*.html",
-    "dist",
     "node_modules"
   ]
 }

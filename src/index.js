@@ -1,7 +1,7 @@
 import 'regenerator-runtime/runtime';
 import React from 'react';
 import {render} from 'react-dom';
-import Platform from './app/platform';
+import Platform from './platform';
 
 // -----------------------------------------------------------------------------
 

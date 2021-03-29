@@ -1,9 +1,10 @@
 import React from 'react';
 import styled from 'styled-components';
-import $Button from './button';
+import {Header as CommonHeader} from '@twinlify/walrus';
 
 // -----------------------------------------------------------------------------
 
+import $Button from './button';
 import GithubCorner from './github-corner';
 import Logo from './logo';
 
@@ -55,16 +56,14 @@ const Header = ({selectDemo, selectedDemo}) => {
     </$$Button>
   ));
 
-  return (
-    <$Header>
-      <Logo />
-      <$DemoSelection>
-        {Buttons}
-        <GithubCorner />
-      </$DemoSelection>
-    </$Header>
-  );
+  return <CommonHeader subtitle="Platform demo">{Buttons}</CommonHeader>;
 };
+// <$Header>
+//   <Logo />
+//   <$DemoSelection>
+//     <GithubCorner />
+//   </$DemoSelection>
+// </$Header>
 
 // -----------------------------------------------------------------------------
 
