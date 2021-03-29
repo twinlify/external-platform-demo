@@ -1,6 +1,6 @@
 {
   "name": "@twinlify/external-platform-demo",
-  "version": "0.0.5",
+  "version": "0.1.0",
   "description": "🍄 Dashboard to demonstrate how to play with Nexus SDK ",
   "module": "dist/es/index.js",
   "scripts": {
