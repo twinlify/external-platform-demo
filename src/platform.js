@@ -1,5 +1,6 @@
 import React, {useState} from 'react';
 import styled, {createGlobalStyle} from 'styled-components';
+import {globalStyle} from '@twinlify/walrus';
 
 // -----------------------------------------------------------------------------
 
@@ -11,12 +12,7 @@ import Demo3 from './demos/demo3';
 
 // -----------------------------------------------------------------------------
 
-const GlobalStyle = createGlobalStyle`
-  body {
-    margin: 0;
-    padding: 0;
-  }
-`;
+const GlobalStyle = createGlobalStyle`${globalStyle}`;
 
 // -----------------------------------------------------------------------------
 
