@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-import {device, mediaQueryTransition} from '../../style/breakpoints';
+import {device} from '@twinlify/walrus';
 
 // -----------------------------------------------------------------------------
 
@@ -13,7 +13,7 @@ const $Img = styled.img`
     margin-left: 20px;
   }
 
-  ${mediaQueryTransition}
+  transition: all 0.4s;
 `;
 
 const Logo = () => (

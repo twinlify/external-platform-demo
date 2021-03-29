@@ -1,7 +1,7 @@
 import React, {useState} from 'react';
 import styled from 'styled-components';
 import $Button from '../../../components/button';
-import {device, mediaQueryTransition} from '../../../style/breakpoints';
+import {device} from '@twinlify/walrus';
 
 // -----------------------------------------------------------------------------
 
@@ -26,7 +26,7 @@ const $Menu = styled.div`
     width: 300px;
   }
 
-  ${mediaQueryTransition}
+  transition: all 0.4s;
 `;
 
 const $List = styled.div`
