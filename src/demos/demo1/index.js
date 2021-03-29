@@ -26,6 +26,7 @@ const fetchDemoTimeSeries = async () => {
 // -----------------------------------------------------------------------------
 
 const Demo = () => {
+  console.log('DEMO1');
   const [timeSeries, setTimeSeries] = useState([]);
   const [selectedEntry, selectEntry] = useState(null);
 

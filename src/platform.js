@@ -1,6 +1,6 @@
-import React, {useState} from 'react';
-import styled, {createGlobalStyle} from 'styled-components';
-import {globalStyle} from '@twinlify/walrus';
+import React from 'react';
+import {Redirect, Route, Switch} from 'react-router';
+import styled from 'styled-components';
 
 // -----------------------------------------------------------------------------
 
@@ -12,52 +12,38 @@ import Demo3 from './demos/demo3';
 
 // -----------------------------------------------------------------------------
 
-const GlobalStyle = createGlobalStyle`${globalStyle}`;
-
-// -----------------------------------------------------------------------------
-
 const $App = styled.div`
   text-align: center;
-  background-color: #101;
   min-height: 100vh;
-  justify-content: flex-start;
-  font-size: calc(10px + 2vmin);
-  color: white;
   position: relative;
   overflow: hidden;
   display: flex;
   flex-direction: column;
+  justify-content: flex-start;
 `;
 
 // -----------------------------------------------------------------------------
 
-const Demo = ({num}) => {
-  switch (num) {
-    case 1:
-      return <Demo1 />;
-    case 2:
-      return <Demo2 />;
-    case 3:
-      return <Demo3 />;
-    default:
-      return <p>No demo {num}</p>;
-  }
-};
-
-// -----------------------------------------------------------------------------
-
-const Platform = () => {
-  const [selectedDemo, selectDemo] = useState(1);
-
-  return (
-    <$App>
-      <GlobalStyle />
-      <Header selectDemo={selectDemo} selectedDemo={selectedDemo} />
-      <Demo num={selectedDemo} />
-    </$App>
-  );
-};
+const Platform = () => (
+  <$App>
+    <Header />
+    <Switch>
+      <Route exact path="/">
+        <Redirect to={PATHS.demo1} />
+      </Route>
+      <Route path={PATHS.demo1} exact component={Demo1} />
+      <Route path={PATHS.demo2} exact component={Demo2} />
+      <Route path={PATHS.demo3} exact component={Demo3} />
+    </Switch>
+  </$App>
+);
 
 // -----------------------------------------------------------------------------
 
 export default Platform;
+
+export const PATHS = {
+  demo1: '/demo1',
+  demo2: '/demo2',
+  demo3: '/demo3'
+};

@@ -1,7 +1,14 @@
-import 'regenerator-runtime/runtime';
 import React from 'react';
 import {render} from 'react-dom';
+import {BrowserRouter as Router} from 'react-router-dom';
+import {createGlobalStyle} from 'styled-components';
+import {globalStyle} from '@twinlify/walrus';
+
 import Platform from './platform';
+
+// -----------------------------------------------------------------------------
+
+const GlobalStyle = createGlobalStyle`${globalStyle}`;
 
 // -----------------------------------------------------------------------------
 
@@ -11,7 +18,13 @@ const createPlatform = (options = {}) => {
   }
 
   const container = document.getElementById(options.containerId);
-  render(<Platform />, container);
+  render(
+    <Router>
+      <GlobalStyle />
+      <Platform />
+    </Router>,
+    container
+  );
 };
 
 // -----------------------------------------------------------------------------
