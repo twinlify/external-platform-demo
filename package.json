@@ -5,8 +5,8 @@
   "module": "dist/es/index.js",
   "scripts": {
     "clean": "rm -rf ./dist",
-    "build": "npm run clean && node scripts/build.js && sh ./scripts/prepare-public-files.sh",
-    "start:dev": "node scripts/dev-server.js",
+    "build": "npm run clean && reactor build",
+    "start:dev": "reactor start",
     "ncu": "npm-check-updates",
     "lint": "eslint src"
   },
@@ -19,6 +19,8 @@
     "styled-components": "^5.2.1"
   },
   "devDependencies": {
+    "@twinlify/walrus": "^0.0.3",
+    "@uralys/reactor": "^1.0.7",
     "babel-eslint": "^10.1.0",
     "eslint": "^7.22.0",
     "eslint-config-prettier": "^8.1.0",

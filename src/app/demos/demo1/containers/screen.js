@@ -104,8 +104,8 @@ const Screen = props => {
           fetch data,
         </p>
         <p>
-          - Then it uses the widget's SDK to update the 3D scene each time you
-          select a value on the list.
+          - Then it uses the widget&apos;s SDK to update the 3D scene each time
+          you select a value on the list.
         </p>
       </$Title>
       <$NexusContainer id={containerId} />
