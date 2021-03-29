@@ -15,8 +15,8 @@ const $$Button = styled($Button)`
 
 const $Menu = styled.div`
   text-align: center;
-  background-color: #222;
-  height: calc(100vh - 80px);
+  background-color: #ddd;
+  height: calc(100vh - 50px);
   padding: 10px;
   font-size: 14px;
   box-sizing: border-box;
@@ -30,7 +30,7 @@ const $Menu = styled.div`
 `;
 
 const $List = styled.div`
-  height: calc(100vh - 180px);
+  height: calc(100vh - 130px);
   overflow-x: hidden;
   overflow-y: scroll;
 `;

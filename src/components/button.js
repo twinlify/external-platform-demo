@@ -4,6 +4,7 @@ import styled, {css} from 'styled-components';
 
 const $Button = styled.div`
   background-color: #1e7ab9;
+  color: #ededed;
   border-radius: 5px;
   margin-right: 5px;
   box-sizing: border-box;
@@ -21,7 +22,7 @@ const $Button = styled.div`
   ${props =>
     props.selected &&
     css`
-      border: 2px solid white;
+      border: 3px solid #184378;
     `}
 
   transition: background-color 0.5s, border 0.2s;

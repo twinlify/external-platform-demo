@@ -15,12 +15,12 @@ const Header = () => {
       <NavLink exact to={PATHS.demo1}>
         Demo1
       </NavLink>
-      <NavLink exact to={PATHS.demo2}>
+      {/* <NavLink exact to={PATHS.demo2}>
         Demo2
       </NavLink>
       <NavLink exact to={PATHS.demo3}>
         Demo3
-      </NavLink>
+      </NavLink> */}
       <a href="https://docs.twinlify.com/" target="__new">
         Documentation
       </a>

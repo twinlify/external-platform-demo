@@ -9,7 +9,7 @@ import Nexus from '@twinlify/nexus';
 const $Screen = styled.div`
   position: relative;
   text-align: center;
-  background-color: #282c34;
+  background-color: #ededed;
   height: calc(100vh - 80px);
   width: 100%;
   display: flex;
@@ -31,6 +31,7 @@ const $Title = styled.div`
     margin: 0;
     padding: 2px;
     box-sizing: border-box;
+    font-weight: 100;
   }
 `;
 
