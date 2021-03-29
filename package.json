@@ -8,8 +8,7 @@
     "build": "npm run clean && node scripts/build.js && sh ./scripts/prepare-public-files.sh",
     "start:dev": "node scripts/dev-server.js",
     "ncu": "npm-check-updates",
-    "lint": "eslint src",
-    "test": "ava"
+    "lint": "eslint src"
   },
   "license": "MIT",
   "dependencies": {
@@ -20,14 +19,7 @@
     "styled-components": "^5.2.1"
   },
   "devDependencies": {
-    "@babel/preset-env": "^7.13.12",
-    "@babel/preset-react": "^7.12.13",
-    "@babel/register": "^7.13.8",
-    "ava": "^3.15.0",
     "babel-eslint": "^10.1.0",
-    "connect-history-api-fallback": "^1.6.0",
-    "esbuild": "^0.10.1",
-    "esbuild-plugin-svgr": "^0.0.1",
     "eslint": "^7.22.0",
     "eslint-config-prettier": "^8.1.0",
     "eslint-config-standard": "^16.0.2",
@@ -35,7 +27,6 @@
     "eslint-plugin-node": "^11.1.0",
     "eslint-plugin-promise": "^4.3.1",
     "eslint-plugin-react": "^7.23.1",
-    "live-server": "^1.2.1",
     "npm-check-updates": "^11.3.0"
   },
   "files": [
