@@ -21,7 +21,7 @@ const Header = () => {
       <NavLink exact to={PATHS.demo3}>
         Demo3
       </NavLink> */}
-      <a href="https://docs.twinlify.com/" target="__new">
+      <a href="https://docs.twinlify.com/documentation" target="__new">
         Documentation
       </a>
       <a
