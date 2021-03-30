@@ -8,6 +8,7 @@ module.exports = {
     shell.rm('-f', 'node_modules/three/build/three.js');
   },
   esbuild: {
+    // metafile: true,
     loader: {
       '.js': 'jsx',
       '.md': 'text'

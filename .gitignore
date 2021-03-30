@@ -1,9 +1,8 @@
 # built files
-dist
+meta.json
 public/*.css
 public/*.js
 public/*.map
-public/meta.json
 
 # deps
 node_modules
