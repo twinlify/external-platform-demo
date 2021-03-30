@@ -1,5 +1,12 @@
+const shell = require('shelljs');
+
 module.exports = {
-  prebuild: [shell => shell.rm('node_modules/three/build/three.js')],
+  prebuild: () => {
+    console.warn(
+      'warning: removing three `main` file to avoid duplicate in bundle'
+    );
+    shell.rm('-f', 'node_modules/three/build/three.js');
+  },
   esbuild: {
     loader: {
       '.js': 'jsx',

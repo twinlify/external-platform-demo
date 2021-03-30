@@ -20,7 +20,7 @@
   },
   "devDependencies": {
     "@twinlify/walrus": "^0.0.6",
-    "@uralys/reactor": "^1.0.11",
+    "@uralys/reactor": "^1.0.12",
     "babel-eslint": "^10.1.0",
     "eslint": "^7.23.0",
     "eslint-config-prettier": "^8.1.0",
@@ -29,6 +29,7 @@
     "eslint-plugin-node": "^11.1.0",
     "eslint-plugin-promise": "^4.3.1",
     "eslint-plugin-react": "^7.23.1",
-    "npm-check-updates": "^11.3.0"
+    "npm-check-updates": "^11.3.0",
+    "shelljs": "^0.8.4"
   }
 }
