@@ -22,7 +22,15 @@ See how to use our 3D widget live on [platform.twinlify.com](https://platform.tw
 > npm run start:dev
 ```
 
-## deploy
+linking local Nexus
+
+```sh
+> ln -s ~/Projects/twinlify/nexus/src ~/Projects/twinlify/platform-demo/node_modules/@twinlify/nexus
+```
+
+## check distribution
+
+`/public` folder `js` files generated with
 
 ```sh
 > npm run build
