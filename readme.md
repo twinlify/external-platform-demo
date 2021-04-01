@@ -25,6 +25,7 @@ See how to use our 3D widget live on [platform.twinlify.com](https://platform.tw
 linking local Nexus
 
 ```sh
+> rm -rf node_modules/@twinlify/nexus
 > ln -s ~/Projects/twinlify/nexus/src ~/Projects/twinlify/platform-demo/node_modules/@twinlify/nexus
 ```
 

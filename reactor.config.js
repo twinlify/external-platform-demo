@@ -4,7 +4,8 @@ module.exports = {
     loader: {
       '.js': 'jsx',
       '.md': 'text'
-    }
+    },
+    conditions: ['module']
   },
   start: {
     hosts: ['platform.localhost']
