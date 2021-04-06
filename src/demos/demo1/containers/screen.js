@@ -65,32 +65,83 @@ const Screen = props => {
   }, []);
 
   // -----------------------------------
+  // on nexus creation
+
+  useEffect(() => {
+    if (!nexus) return;
+
+    nexus.useCustomisation({
+      id: 'temperatureColoring',
+      steps: [18, 21, 24, 27],
+      colors: ['#33f', '#33bb77', '#f3e942', '#f18842', '#d33a3a']
+    });
+
+    const reading = {
+      temperature: {
+        name: 'Température',
+        coloring: 'temperatureColoring'
+      },
+      date: {
+        name: 'Date'
+      }
+    };
+
+    const feature = {
+      type: 'Feature',
+      geometry: {
+        type: 'Polygon',
+        coordinates: [
+          [
+            [103.849930150763313, 1.284094470971986],
+            [103.849868755405211, 1.284173704035499],
+            [103.849851001101953, 1.284159954282746],
+            [103.849855952615783, 1.284153564374763],
+            [103.849849561102531, 1.284148614104515],
+            [103.8498446095887, 1.28415500401252],
+            [103.84979773998873, 1.284118704125956],
+            [103.849802690604278, 1.284112314217869],
+            [103.849796299091025, 1.284107364845613],
+            [103.849791348475492, 1.28411375385564],
+            [103.849773595070531, 1.284100004102538],
+            [103.849834989530308, 1.284020771036741],
+            [103.849873338609783, 1.284050470863446],
+            [103.849887248596787, 1.284061261598652],
+            [103.849930150763313, 1.284094470971986]
+          ]
+        ]
+      }
+    };
+
+    nexus.createDevice({
+      id: 'zone-2-1',
+      feature,
+      model: {
+        type: 'polygon',
+        color: 'use-reading',
+        opacity: 0.4,
+        depth: 0.1
+      },
+      properties: {
+        level: 2
+      },
+      reading
+    });
+  }, [nexus]);
+
+  // -----------------------------------
   // on update
 
   useEffect(() => {
     if (!nexus) return;
 
-    const [date, value] = props.selectedEntry || [];
-
-    const reader = nexus.createReader({
-      colorPath: 'value',
-      colorSteps: 'zonesColors',
-      properties: [
-        {
-          name: 'Temperature',
-          path: 'value'
-        },
-        {
-          name: 'Date',
-          path: 'date'
-        }
-      ]
-    });
+    const [date, temperature] = props.selectedEntry || [];
 
     nexus.updateDevice({
       deviceId: 'zone-2-1',
-      rawData: {value, date},
-      reader
+      data: {
+        temperature,
+        date
+      }
     });
   }, [selectedEntry, nexus]);
 
