@@ -71,9 +71,11 @@ const Screen = props => {
     if (!nexus) return;
 
     nexus.useCustomisation({
-      id: 'temperatureColoring',
-      steps: [18, 21, 24, 27],
-      colors: ['#33f', '#33bb77', '#f3e942', '#f18842', '#d33a3a']
+      coloring: {
+        id: 'temperatureColoring',
+        steps: [18, 21, 24, 27],
+        colors: ['#33f', '#33bb77', '#f3e942', '#f18842', '#d33a3a']
+      }
     });
 
     const reading = {
