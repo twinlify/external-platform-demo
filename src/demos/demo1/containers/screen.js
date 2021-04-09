@@ -58,7 +58,7 @@ const Screen = props => {
 
   useEffect(() => {
     Nexus.create({
-      clientId: production ? 'twinlify' : 'localhost',
+      clientId: production ? 'twinlify' : 'twinlify-localhost',
       containerId,
       configId: 'demo1'
     }).then(setNexus);
@@ -70,7 +70,7 @@ const Screen = props => {
   useEffect(() => {
     if (!nexus) return;
 
-    nexus.useCustomisation({
+    nexus.addCustomisation({
       coloring: {
         id: 'temperatureColoring',
         steps: [18, 21, 24, 27],
@@ -118,12 +118,11 @@ const Screen = props => {
       id: 'zone-2-1',
       feature,
       model: {
-        type: 'polygon',
-        color: 'use-reading',
-        opacity: 0.4,
-        depth: 0.1
+        type: 'polygon'
       },
       properties: {
+        opacity: 0.4,
+        depth: 0.1,
         level: 2
       },
       reading
@@ -138,7 +137,7 @@ const Screen = props => {
 
     const [date, temperature] = props.selectedEntry || [];
 
-    nexus.updateDevice({
+    nexus.updateDeviceData({
       deviceId: 'zone-2-1',
       data: {
         temperature,
