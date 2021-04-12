@@ -1,5 +1,5 @@
 {
-  "name": "@twinlify/external-platform-demo",
+  "name": "@twinlify/platform-demo",
   "version": "0.1.4",
   "description": "🍄 Dashboard to demonstrate how to play with Nexus SDK ",
   "scripts": {
@@ -11,7 +11,7 @@
   },
   "license": "MIT",
   "dependencies": {
-    "@twinlify/nexus": "^0.9.3",
+    "@twinlify/nexus": "^0.9.4",
     "axios": "^0.21.1",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
@@ -20,14 +20,11 @@
   },
   "devDependencies": {
     "@twinlify/walrus": "^0.0.9",
-    "@uralys/reactor": "^1.0.14",
+    "@uralys/reactor": "^1.0.15",
     "babel-eslint": "^10.1.0",
-    "eslint": "^7.23.0",
+    "eslint": "^7.24.0",
     "eslint-config-prettier": "^8.1.0",
     "eslint-config-standard": "^16.0.2",
-    "eslint-plugin-import": "^2.22.1",
-    "eslint-plugin-node": "^11.1.0",
-    "eslint-plugin-promise": "^4.3.1",
     "eslint-plugin-react": "^7.23.2",
     "npm-check-updates": "^11.4.1",
     "shelljs": "^0.8.4"
