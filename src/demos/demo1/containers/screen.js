@@ -70,12 +70,10 @@ const Screen = props => {
   useEffect(() => {
     if (!nexus) return;
 
-    nexus.addCustomisation({
-      coloring: {
-        id: 'temperatureColoring',
-        steps: [18, 21, 24, 27],
-        colors: ['#33f', '#33bb77', '#f3e942', '#f18842', '#d33a3a']
-      }
+    nexus.addColoring({
+      id: 'temperatureColoring',
+      steps: [18, 21, 24, 27],
+      colors: ['#33f', '#33bb77', '#f3e942', '#f18842', '#d33a3a']
     });
 
     const reading = {
@@ -136,6 +134,9 @@ const Screen = props => {
     if (!nexus) return;
 
     const [date, temperature] = props.selectedEntry || [];
+    if (!date) {
+      return;
+    }
 
     nexus.updateDeviceData({
       deviceId: 'zone-2-1',
