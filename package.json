@@ -1,6 +1,6 @@
 {
   "name": "@twinlify/platform-demo",
-  "version": "0.1.4",
+  "version": "0.1.5",
   "description": "🍄 Dashboard to demonstrate how to play with Nexus SDK ",
   "scripts": {
     "clean": "rm -rf ./dist",
