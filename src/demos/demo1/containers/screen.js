@@ -116,11 +116,10 @@ const Screen = props => {
       id: 'zone-2-1',
       feature,
       model: {
-        type: 'polygon'
+        type: 'polygon',
+        opacity: 0.4
       },
       properties: {
-        opacity: 0.4,
-        depth: 0.1,
         level: 2
       },
       reading
