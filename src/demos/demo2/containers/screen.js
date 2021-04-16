@@ -121,8 +121,7 @@ const Screen = props => {
 
   useEffect(() => {
     if (!nexus) return;
-
-    const temperature = 23.5;
+    const [, temperature] = props.selectedEntry || [];
 
     nexus.updateDeviceData({
       deviceId: 'zone-1-1',
@@ -130,7 +129,7 @@ const Screen = props => {
         temperature
       }
     });
-  }, [nexus]);
+  }, [selectedEntry, nexus]);
 
   // -----------------------------------
 
