@@ -60,7 +60,7 @@ const Screen = props => {
     Nexus.create({
       clientId: production ? 'twinlify' : 'twinlify-localhost',
       containerId,
-      configId: 'synox-office'
+      configId: 'rooms'
     }).then(setNexus);
   }, []);
 
@@ -71,7 +71,7 @@ const Screen = props => {
     if (!nexus) return;
 
     nexus.addColoring({
-      id: 'tempRules',
+      id: 'temperatureColoring',
       steps: [18, 21, 24, 27],
       colors: ['#33f', '#33bb77', '#f3e942', '#f18842', '#d33a3a']
     });
@@ -79,38 +79,44 @@ const Screen = props => {
     const reading = {
       temperature: {
         name: 'Température',
-        coloring: 'tempRules'
+        coloring: 'temperatureColoring'
+      },
+      date: {
+        name: 'Date'
       }
     };
 
-    const featurePoly = {
+    const feature = {
       type: 'Feature',
-      properties: {},
+      id: 'L4-18',
       geometry: {
         type: 'Polygon',
         coordinates: [
           [
-            [3.8677980378270145, 43.600213612541815],
-            [3.867798373103142, 43.60020025872323],
-            [3.8678161427378654, 43.600190061259745],
-            [3.86785302311182, 43.600177435826396],
-            [3.8678637519478802, 43.60018933286944],
-            [3.8677903264760967, 43.6002483324563],
-            [3.8677980378270145, 43.600213612541815]
+            [103.742729517214, 1.33433539405487],
+            [103.742737235416, 1.33442067499677],
+            [103.742726678418, 1.33442162989904],
+            [103.74272703878, 1.33442561174525],
+            [103.742708247635, 1.33442731144304],
+            [103.742707887428, 1.33442333131407],
+            [103.742707887428, 1.33442333131407],
+            [103.742698327643, 1.33442420087013],
+            [103.742690568347, 1.33433894193086],
+            [103.742729517214, 1.33433539405487]
           ]
         ]
       }
     };
 
     nexus.createDevice({
-      id: 'zone-1-1',
-      feature: featurePoly,
+      id: 'zone-4-18',
+      feature,
       model: {
         type: 'polygon',
         opacity: 0.4
       },
       properties: {
-        level: 1
+        level: 0
       },
       reading
     });
@@ -121,12 +127,17 @@ const Screen = props => {
 
   useEffect(() => {
     if (!nexus) return;
-    const [, temperature] = props.selectedEntry || [];
+
+    const [date, temperature] = props.selectedEntry || [];
+    if (!date) {
+      return;
+    }
 
     nexus.updateDeviceData({
-      deviceId: 'zone-1-1',
+      deviceId: 'zone-4-18',
       data: {
-        temperature
+        temperature,
+        date
       }
     });
   }, [selectedEntry, nexus]);
