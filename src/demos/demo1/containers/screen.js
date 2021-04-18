@@ -86,7 +86,7 @@ const Screen = props => {
       }
     };
 
-    const feature = {
+    const location = {
       type: 'Feature',
       geometry: {
         type: 'Polygon',
@@ -114,7 +114,7 @@ const Screen = props => {
 
     nexus.createDevice({
       id: 'zone-2-1',
-      feature,
+      location,
       model: {
         type: 'polygon',
         opacity: 0.4
