@@ -8,19 +8,23 @@
 
 [![Netlify Status](https://api.netlify.com/api/v1/badges/e3a5cf54-23e7-4135-8d20-f4ce87fe9244/deploy-status)](https://app.netlify.com/sites/twinlify-platform-demo/deploys)
 
-[![threejs](https://img.shields.io/badge/threejs-r125-315.svg)](https://github.com/mrdoob/three.js)
-[![style: styled-components](https://img.shields.io/badge/-%F0%9F%92%85%20styled--components-orange.svg?colorB=415)](https://github.com/styled-components/styled-components)
+[![nexus](https://img.shields.io/npm/v/@twinlify/nexus?color=%23111&label=%40twinlify%2Fnexus)](https://www.npmjs.com/package/@twinlify/nexus)
+[![threejs](https://img.shields.io/npm/v/three?label=three&colorB=111)](https://github.com/mrdoob/three.js)
+[![taverne](https://img.shields.io/npm/v/taverne?label=taverne&colorB=111)](https://github.com/uralys/taverne)
+[![style: styled-components](https://img.shields.io/badge/-%F0%9F%92%85%20styled--components-orange.svg?colorB=111)](https://github.com/styled-components/styled-components)
 
-## Demo
+## Live demo
 
 See how to use our 3D widget live on [platform.twinlify.com](https://platform.twinlify.com)
 
-## dev
+## Local
 
 ```sh
 > npm install
 > npm run start:dev
 ```
+
+## dev
 
 linking local Nexus
 
