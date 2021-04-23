@@ -3,8 +3,7 @@
   "version": "0.1.9",
   "description": "🍄 Dashboard to demonstrate how to play with Nexus SDK ",
   "scripts": {
-    "clean": "rm -rf ./dist",
-    "build": "npm run clean && reactor build",
+    "build": "reactor build",
     "start:dev": "reactor start",
     "ncu": "npm-check-updates",
     "lint": "eslint src"
