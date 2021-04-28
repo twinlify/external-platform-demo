@@ -10,7 +10,7 @@
   },
   "license": "MIT",
   "dependencies": {
-    "@twinlify/nexus": "^0.11.5",
+    "@twinlify/nexus": "^0.12.0",
     "axios": "^0.21.1",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
@@ -19,14 +19,14 @@
     "styled-components": "^5.2.3"
   },
   "devDependencies": {
-    "@twinlify/walrus": "^0.0.9",
-    "@uralys/reactor": "^1.0.16",
+    "@twinlify/walrus": "^0.0.10",
+    "@uralys/reactor": "^1.0.18",
     "babel-eslint": "^10.1.0",
     "eslint": "^7.25.0",
     "eslint-config-prettier": "^8.3.0",
     "eslint-config-standard": "^16.0.2",
     "eslint-plugin-react": "^7.23.2",
-    "npm-check-updates": "^11.5.1",
+    "npm-check-updates": "^11.5.4",
     "shelljs": "^0.8.4"
   }
 }
