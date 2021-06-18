@@ -60,7 +60,7 @@ const Screen = props => {
     Nexus.create({
       clientId: production ? 'twinlify' : 'twinlify-localhost',
       containerId,
-      configId: 'rooms'
+      configId: 'rooms-simple'
     }).then(setNexus);
   }, []);
 
