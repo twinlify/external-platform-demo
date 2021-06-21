@@ -10,7 +10,7 @@
   },
   "license": "MIT",
   "dependencies": {
-    "@twinlify/nexus": "^0.18.0",
+    "@twinlify/nexus": "^0.19.0",
     "axios": "^0.21.1",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
@@ -22,7 +22,7 @@
     "@twinlify/walrus": "^0.0.10",
     "@uralys/reactor": "^1.2.1",
     "babel-eslint": "^10.1.0",
-    "eslint": "^7.28.0",
+    "eslint": "^7.29.0",
     "eslint-config-prettier": "^8.3.0",
     "eslint-config-standard": "^16.0.3",
     "eslint-plugin-react": "^7.24.0",
