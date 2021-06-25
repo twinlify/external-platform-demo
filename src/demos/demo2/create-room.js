@@ -11,7 +11,6 @@ const createRoom = nexus => {
 
   const location = {
     type: 'Feature',
-    id: 'L4-18',
     geometry: {
       type: 'Polygon',
       coordinates: [

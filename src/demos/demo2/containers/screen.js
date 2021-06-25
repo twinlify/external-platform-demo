@@ -4,6 +4,8 @@ import React, {useEffect, useState} from 'react';
 import styled from 'styled-components';
 import Nexus from '@twinlify/nexus';
 import createRoom from '../create-room';
+import createSphere from '../create-sphere';
+import moveSphere from '../move-sphere';
 
 // -----------------------------------------------------------------------------
 
@@ -63,6 +65,10 @@ const Screen = props => {
       containerId,
       configId: 'rooms-empty'
     }).then(setNexus);
+
+    return () => {
+      // should dispatch a deleteNexus
+    };
   }, []);
 
   // -----------------------------------
@@ -80,6 +86,8 @@ const Screen = props => {
     });
 
     createRoom(nexus);
+    createSphere(nexus);
+    moveSphere(nexus);
   }, [nexus]);
 
   // -----------------------------------
